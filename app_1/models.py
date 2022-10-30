@@ -46,6 +46,7 @@ class documentacionAspirante(models.Model):
 class Oferta(models.Model):
     id_Oferta = models.AutoField(primary_key=True, blank=False)
     Empresa_id_empresa = models.ForeignKey(Empresa, null= False, blank=False, on_delete=models.CASCADE)
+    Nombre_empresa = models.CharField(max_length=45, null=True)
     cargo = models.CharField(max_length=45, null=False)
     perfil_buscado = models.CharField(max_length=200, null=False)
     salario = models.PositiveIntegerField(default=0)
@@ -55,6 +56,7 @@ class Match(models.Model):
     Oferta_id_oferta = models.ForeignKey(Oferta, null= False, blank=False, on_delete=models.CASCADE)
     Empresa_id_empresa = models.ForeignKey(Empresa, null= False, blank=False, on_delete=models.CASCADE)
     Aspirante_id_aspirante = models.ForeignKey(Aspirante, null= False, blank=False, on_delete=models.CASCADE)
+    Nombre_empresa = models.CharField(max_length=45, null=True)
     fecha_match = models.DateTimeField(auto_now_add=True)
     tipo_match = models.CharField(max_length=45, null=False, choices=(('Perfecto','Perfecto'),('Muy bueno', 'Muy bueno'),('Bueno','Bueno'),('Medio','Medio')))
     porcentaje = models.PositiveIntegerField(default=0)
