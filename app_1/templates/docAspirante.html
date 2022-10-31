@@ -1,2 +1,287 @@
+<style>
+    :root{
+        --width: 300px;
+        --padding: 10px;
+        --bgcolor: #19351b;
+        --hovercolor: #0f1f20;
+        --width-collapsed: 50px;
+    }
+    
+    body{
+        background: url(https://i.postimg.cc/284ZrdcS/Imagen7.png);
+        background-size: 100%;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        font-family: 'Poppins';
+        font-size: 22px;
+        padding: 0;
+        margin: 0;
+        margin-left: var(--width-collapsed);
+    }
+    
+    #main-container{
+        color: white;
+    }
+    
+    
+    #sidemenu{
+        background-color: var(--bgcolor);
+        color: white;
+        position: fixed;
+        height: 100%;
+        z-index: 3;
+        left: 0;
+        top: 0;
+    }
+    
+    #sidemenu a{
+        color: white;
+        text-decoration: none;
+    }
+    
+    .colorPunto {
+        color: #c8ff70;;
+    }
+    
+    #sidemenu #header{
+        box-sizing: border-box;
+        border-bottom: solid 3px var(--hovercolor);
+    }
+    
+    #sidemenu #header #title{
+        box-sizing: border-box;
+        overflow: hidden;
+    }
+    
+    #sidemenu #header #title, #sidemenu #header #menu-btn{
+        vertical-align: middle;
+    }
+    
+    #sidemenu #header #menu-btn{
+        cursor: pointer;
+        padding: 10px;
+        width: var(--width-collapsed);
+        box-sizing: border-box;
+    }
+    
+    #sidemenu #header #menu-btn :hover{
+        background-color: var(--hovercolor);
+    }
+    
+    #sidemenu #header #menu-btn .btn-hamburger{
+        background-color: #fff;
+        width: 100%;
+        height: 2px;
+        margin: 5px 0;
+    }
+    
+    
+    #sidemenu #profile{
+        border-bottom: solid 3px var(--hovercolor);
+        padding: var(--padding) 0;
+        text-align: center;
+    }
+    
+    #sidemenu #profile #photo{
+        box-sizing: border-box;
+        padding: var(--padding);
+        margin: 0 auto;
+        
+    }
+    
+    #sidemenu #profile #photo img{
+        width: 70%;
+    }
+    
+    #sidemenu #profile #photo, #sidemenu #profile #name{
+        font-size: 24px;
+        padding: var(--padding) 0;
+        overflow: hidden;
+    }
+    
+    #sidemenu #menu-items{
+        overflow: hidden;
+    }
+    
+    #sidemenu #menu-items .item{
+        width: var(--width);
+    }
+    
+    #sidemenu #menu-items .item .icon{
+        display: inline-block;
+    }
+    
+    #sidemenu #menu-items .item .icon, #sidemenu #menu-items .item .title{
+        font-size: 14px;
+        vertical-align: middle;
+        overflow: hidden;
+        display: inline-block;
+    }
+    
+    #sidemenu #menu-items .item a{
+        display: block;
+    }
+    
+    #sidemenu #menu-items .item a:hover{
+        background-color: var(--hovercolor);
+    }
+    
+    #sidemenu #menu-items .item .icon{
+        box-sizing: border-box;
+        padding: var(--padding);
+        width: var(--width-collapsed);
+    }
+    
+    #sidemenu #menu-items .item .icon img{
+        width: 100%;
+    }
+    
+    #sidemenu #menu-items .item .title{
+        padding: var(--padding) 0;
+    }
+    
+    #sidemenu #menu-items .item .separator{
+        height: 1px;
+        border-bottom: solid 3px var(--hovercolor);
+        margin: 15px 0;
+    }
+    
+    #sidemenu #menu-items .borde{
+        border-bottom: solid 3px #0f1f20;;
+    }
+    
+    .menu-expanded{
+        width:  var(--width);
+        box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    }
+    
+    .menu-expanded #header #title{
+        display: inline-block;
+        width: calc(100% - 50px);
+        margin-right: -5px;
+        padding: var(--padding);
+    }
+    
+    .menu-expanded #header #title span2{
+        width: calc(var(--width) - var(--width-collapsed) - 5px);
+        overflow: hidden;
+    }
+    
+    .menu-expanded #profile #photo{
+        width: 80%;
+    }
+    
+    .menu-expanded #profile #name{
+        width: 100%;
+    }
+    
+    .menu-collapsed{
+        width: var(--width-collapsed);
+    }
+    
+    .menu-collapsed #header #title{
+        width: 0;
+        height: 0;
+        padding: 0;
+        margin: 0;
+    }
+    
+    .menu-collapsed #profile #name{
+        display: none;
+    }
+    
+    .menu-collapsed .item{
+        width: 100px;
+    }
+    
+    .fondoColor{
+        background-color: #204044;
+        height: 57px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0);
+    }
+    
+    .alinear{
+        text-align: right;
+    }
+    
+    .fondoColor2{
+            box-shadow: -6px 3px 5px rgba(0, 0, 0);
+    }
+    
+    .espacios{
+        margin-left: 8px;
+        float: right;
+        padding: 0.8em;
+        color: #fff;
+        font-size: 18px;
+        text-decoration: none;
+        background: #1b363a;
+    }
+    
+    .logo{
+        float: right;
+        padding-top: 6px;
+        padding-right: 25px;
+        padding-left: 20px;
+        color: #fff;
+    }
+    
+    .espacios a:hover {
+        background: rgb(255, 255, 255);
+    }
+    
+    .centrado {
+        padding-right: 3em;
+        padding-left: 3em;
+    }
+    
+    .posicion{
+        position:fixed;
+    }
+    
+    .borde1{
+        border: 5px solid;
+        border-color: #ffbe30;
+        border-radius: 30px;
+    }
+    
+    .box {
+      border: 7px solid rgb(51, 87, 153);
+      background: #70c6ff;
+      border-radius: 1em;
+      padding: 1em;
+      margin-left: 2em;
+      
+    }
+    
+    .color3{
+        background: #feffce;
+    }
+    
+    .color4{
+            background: #d2fffa;
+            border-radius: 1em;
+            padding: 3px;
+            border: 4px solid #264d53;
+        }
+    
+    .color1{
+        color: rgb(82, 180, 180);
+    }
+    
+    .color2{
+        color: rgb(23, 117, 217);
+    }
+    
+    .botones a:hover{
+        background-color: rgb(0, 39, 112);
+    }
+      
+    
+</style>
+{% extends "base.html" %}
+{% block titulo %} Doc Aspirantes - WorkTalents {% endblock %}
+{% block contenido %}
 <h1>¡Bienvenido a Work talents!</h1>
 <h2>Esta sera la interfaz dentro de la cual se podra ver la documentacion proveeida por parte de algun aspirante a WorkTalents</h2>
+{% endblock %}

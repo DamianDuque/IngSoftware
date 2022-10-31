@@ -19,11 +19,16 @@ from app_1 import views as vistas
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', vistas.home),
-    path('aspirantes/', vistas.Aspirantes),
-    path('empresas/', vistas.Empresas),
-    path('ofertas/', vistas.ofertas),
-    path('matchs/', vistas.Matchs),
-    path('docEmpresa/', vistas.documentacionEmpresa),
-    path('docAspirante/', vistas.documentacionAspirante),
+    path('home', vistas.home, name= 'home'),
+    path('', vistas.homes, name = 'homes'),
+    path('aspirantes', vistas.aspirantes, name= 'aspirantes'),
+    path('empresas', vistas.empresas, name= 'empresas'),
+    path('ofertas', vistas.ofertas, name= 'ofertas'),
+    path('matchs', vistas.matchs, name= 'matchs'),
+    path('docEmpresa', vistas.documentacionEmpresa, name= 'docEmpresa'),
+    path('docAspirante', vistas.documentacionAspirante, name= 'docAspirante'),
+
+    path('ingresarOferta', vistas.ingresarOferta, name = 'ingresarOferta'),
+    path('ingresarEmpresa', vistas.ingresarEmpresa, name = 'ingresarEmpresa'),
+    path('ingresarAspirante', vistas.ingresarAspirante, name = 'ingresarAspirante'),
 ]
