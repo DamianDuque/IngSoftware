@@ -92,5 +92,24 @@
     <div style="padding-top:2em;">
         {% block contenido %} {% endblock %}
     </div>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+
+  
+  {% if messages %}
+      {% for m in messages %}
+          <script>
+            Swal.fire({
+              "title": "Datos Recibidos",
+              "text": "{{m}}",
+              "icon": "success"
+            })
+          </script>
+      {% endfor %}
+  {% endif %}
+          <!-- {{m}}
+          icons: succes, warning, question, error , info
+          -->
+    <br>
 </body>
 </html>
