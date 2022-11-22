@@ -1,12 +1,12 @@
-import imp
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
-from app_1.models import *
-from .forms import ingresarOfertaForm
+from .models import *
+from django.contrib import messages
+from .forms import ingresarAspiranteForm, ingresarEmpresaForm, ingresarOfertaForm
 
 # Create your views here.
 
-usr_id = 1
+usr_id = 2
 usuarios_obj = Usuario.objects.get(id_usuario = usr_id)
 
 def home(request):
@@ -44,23 +44,65 @@ def documentacionEmpresa(request):
     return render(request, 'docEmpresa.html')
 
 def ingresarOferta(request):
-    data={
-       'form': ingresarOfertaForm()
-    }
-    if request.method == 'POST':
-        formulario = ingresarOfertaForm(data=request.POST)
-        if formulario.is_valid():
-            formulario.save()
-            data["mensaje"] = "Oferta Guardada"
-        else:
-            data["form"] =formulario
-            data["mensaje"] = "Syntax Error"
-    return render(request, 'formularios/ingresarOferta.html', data)
+    #data={
+    #   'formOferta': ingresarOfertaForm()
+    #}
+    #if request.method == 'POST':
+    #    formulario = ingresarOfertaForm(data=request.POST)
+    #    if formulario.is_valid():
+    #        formulario.save()
+    #        data["mensaje"] = "Oferta Guardada"
+    #    else:
+    #        data["formOferta"] =formulario
+    #        data["mensaje"] = "Syntax Error"
+
+    formulario = ingresarOfertaForm(request.POST or None)
+    if formulario.is_valid():
+        formulario.save()
+        messages.success(request, "Nueva oferta publicada con éxito.")  # prueba de funcionalidad
+        #return redirect('homes')
+        return redirect('ofertas')
+
+    return render(request, 'formularios/ingresarOferta.html', {'formulario': formulario})#data)
 
 def ingresarEmpresa(request):
+    #data={
+    #   'formEmpresa': ingresarEmpresaForm()
+    #}
+    #if request.method == 'POST':
+    #    formulario = ingresarEmpresaForm(data=request.POST)
+    #    if formulario.is_valid():
+    #        formulario.save()
+    #        data["mensaje"] = "Oferta Guardada"
+    #    else:
+    #        data["formEmpresa"] =formulario
+    #        data["mensaje"] = "Syntax Error"
+    formulario = ingresarEmpresaForm(request.POST or None)
+    if formulario.is_valid():
+        formulario.save()
+        messages.success(request, "Nueva Empresa registrada con éxito.")  # prueba de funcionalidad
+        #return redirect('homes')
+        return redirect('empresas')
     return render(request, 'formularios/ingresarEmpresa.html')
 
 def ingresarAspirante(request):
+    #data={
+    #   'formAspirante': ingresarAspiranteForm()
+    #}
+    #if request.method == 'POST':
+    #    formulario = ingresarAspiranteForm(data=request.POST)
+    #    if formulario.is_valid():
+    #        formulario.save()
+    #        data["mensaje"] = "Oferta Guardada"
+    #    else:
+    #        data["formAspirante"] =formulario
+    #        data["mensaje"] = "Syntax Error"
+    formulario = ingresarAspiranteForm(request.POST or None)
+    if formulario.is_valid():
+        formulario.save()
+        messages.success(request, "Nuevo Aspirante agregado con éxito.")  # prueba de funcionalidad
+        #return redirect('homes')
+        return redirect('aspirantes')
     return render(request, 'formularios/ingresarAspirante.html')
 
 # Comandos repositorio
