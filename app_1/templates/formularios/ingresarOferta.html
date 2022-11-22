@@ -298,7 +298,7 @@ body {
     font-family: Verdana, sans-serif;
     color: rgb(158, 24, 24); 
     box-shadow: 7px 13px 37px #000;
-    margin-top: 50px;
+    margin-top: 20px;
     margin-bottom: 50px;
 }
 .form-registro h4 {
@@ -345,34 +345,27 @@ perfil bsucado
 salario
 -->
 
-<div class="card">
-    <div class="card-body">
-        <div class="row">
-            <div class="col-12 col-md-6 offset-md-3">
+<div class="row">
+    <div class="col-12 col-md-6 offset-md-3">
+        <!--<div class="card" style="background: none;">
+            <div class="card-body">-->
 
-                <!--<form action="" method="post" enctype="multipart/form-data">
-                    <div class="d-flex justify-content-center">
-                        <input type="reset" value="Cancelar" class="btn btn-secondary"> &nbsp;
-                        <input type="button" value="Guardar" class="btn btn-primary">
-                    </div>
-                </form>
-            -->
                 <form action="" class="" method="post">
                     {% csrf_token %}
-                    <section class= "form-registro">
+                    <section class= "form-registro"><!-- {{formOferta}} sin estilos-->
                         <h4 align="center"> Registrar Oferta </h4>
-                        <input class="controles" type = "int" name = "Empresa_id_empresa" id ="Empresa_id_empresa" placeholder="Id Empresa">
-                        <input class="controles" type = "int" name = "Nombre_empresa" id ="Nombre_empresa" placeholder="Nombre de la Empresa">
-                        <input class="controles" type = "int" name = "cargo" id ="cargo" placeholder="Cargo">
-                        <input class="controles" type = "text" name = "perfil_buscado" id ="perfil_buscado" placeholder="Perfil Buscado">
-                        <input class="controles" type = "text" name = "salario" id ="salario" placeholder="Salario">
+                        <input class="controles" type="number" name = "Empresa_id_empresa" id ="Empresa_id_empresa" placeholder="Id Empresa">
+                        <input class="controles" type="text" name = "Nombre_empresa" id ="Nombre_empresa" placeholder="Nombre de la Empresa">
+                        <input class="controles" type="text" name = "cargo" id ="cargo" placeholder="Cargo">
+                        <input class="controles" type="text" name = "perfil_buscado" id ="perfil_buscado" placeholder="Perfil Buscado">
+                        <input class="controles" min="0" type="int" name = "salario" id ="salario" placeholder="Salario">
                         <center><button type="submit" id="btnEnviar" class="botones">Enviar</button></center>
+                        {{mensaje}}<!--Revisar types en modelos para terminarla-->
                     </section>
                 </form>
-                {{mensaje}}
             
-            </div>
-        </div>
+            <!--</div>
+        </div>-->
     </div>
 </div>
 
